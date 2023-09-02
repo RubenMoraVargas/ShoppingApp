@@ -1,0 +1,13 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true
+  },
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "include": ["./.eslintrc.js", "tailwind.config.js",
+   "babel.config.js", "jest.config.js", "src/**/*", "App.tsx"]
+}

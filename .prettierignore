@@ -1,0 +1,10 @@
+node_modules
+assets
+.editorconfig
+.eslintignore
+*.js
+*.json
+.prettierignore
+.gitignore
+.prettierrc
+
