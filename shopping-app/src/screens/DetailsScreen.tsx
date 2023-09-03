@@ -1,43 +1,46 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import React, { useState } from 'react'
-import { type RootStackScreenProps } from '../navigators/RootNavigator'
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
-import { useTheme } from '@react-navigation/native'
-import Icons from '@expo/vector-icons/MaterialIcons'
-import { StatusBar } from 'expo-status-bar'
-import BottomSheet from '@gorhom/bottom-sheet'
+import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import React, { useRef, useState } from "react";
+import { RootStackScreenProps } from "../navigators/RootNavigator";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
+import { useTheme } from "@react-navigation/native";
+import Icons from "@expo/vector-icons/MaterialIcons";
+import { StatusBar } from "expo-status-bar";
+import BottomSheet from "@gorhom/bottom-sheet";
 
-const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL']
+const SIZES = ["XS", "S", "M", "L", "XL", "XXL", "3XL"];
 
 const DetailsScreen = ({
   navigation,
   route: {
     params: { id },
   },
-}: RootStackScreenProps<'Details'>) => {
-  const { colors } = useTheme()
-  const insets = useSafeAreaInsets()
-  const [count, setCount] = useState(1)
-  const [size, setSize] = useState(SIZES[0])
+}: RootStackScreenProps<"Details">) => {
+  const { colors } = useTheme();
+  const insets = useSafeAreaInsets();
+  const [count, setCount] = useState(1);
+  const [size, setSize] = useState(SIZES[0]);
 
   return (
     <View style={{ flex: 1 }}>
       <Image
         source={{
-          uri: 'https://images.unsplash.com/photo-1571945153237-4929e783af4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+          uri: "https://images.unsplash.com/photo-1571945153237-4929e783af4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
         }}
         style={{ flex: 1 }}
       />
 
       <SafeAreaView
-        edges={['top']}
-        style={{ position: 'absolute', top: 0, left: 0, right: 0 }}
+        edges={["top"]}
+        style={{ position: "absolute", top: 0, left: 0, right: 0 }}
       >
         <StatusBar style="light" />
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
+            flexDirection: "row",
+            alignItems: "center",
             padding: 20,
             gap: 8,
           }}
@@ -47,41 +50,41 @@ const DetailsScreen = ({
             style={{
               width: 52,
               aspectRatio: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
               borderRadius: 52,
               borderWidth: 1,
-              borderColor: '#fff',
+              borderColor: "#fff",
             }}
           >
-            <Icons name="arrow-back" size={24} color={'#fff'} />
+            <Icons name="arrow-back" size={24} color={"#fff"} />
           </TouchableOpacity>
           <View style={{ flex: 1 }} />
           <TouchableOpacity
             style={{
               width: 52,
               aspectRatio: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
               borderRadius: 52,
               borderWidth: 1,
-              borderColor: '#fff',
+              borderColor: "#fff",
             }}
           >
-            <Icons name="favorite-border" size={24} color={'#fff'} />
+            <Icons name="favorite-border" size={24} color={"#fff"} />
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               width: 52,
               aspectRatio: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
               borderRadius: 52,
               borderWidth: 1,
-              borderColor: '#fff',
+              borderColor: "#fff",
             }}
           >
-            <Icons name="add-shopping-cart" size={24} color={'#fff'} />
+            <Icons name="add-shopping-cart" size={24} color={"#fff"} />
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -101,17 +104,17 @@ const DetailsScreen = ({
         }}
       >
         <View style={{ padding: 16, gap: 16, flex: 1 }}>
-          <Text style={{ fontSize: 20, fontWeight: '600', color: colors.text }}>
+          <Text style={{ fontSize: 20, fontWeight: "600", color: colors.text }}>
             PUMA Everyday Hussle
           </Text>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
             <View style={{ flex: 1 }}>
-              <View style={{ flexDirection: 'row', gap: 2 }}>
-                {new Array(5).fill('').map((_, i) => (
+              <View style={{ flexDirection: "row", gap: 2 }}>
+                {new Array(5).fill("").map((_, i) => (
                   <Icons
                     key={i}
-                    name={i < 3 ? 'star' : 'star-border'}
+                    name={i < 3 ? "star" : "star-border"}
                     color="#facc15"
                     size={20}
                   />
@@ -131,8 +134,8 @@ const DetailsScreen = ({
 
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
+                flexDirection: "row",
+                alignItems: "center",
                 gap: 6,
                 backgroundColor: colors.primary,
                 padding: 6,
@@ -145,8 +148,8 @@ const DetailsScreen = ({
                   backgroundColor: colors.card,
                   width: 34,
                   aspectRatio: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  alignItems: "center",
+                  justifyContent: "center",
                   borderRadius: 34,
                 }}
               >
@@ -155,7 +158,7 @@ const DetailsScreen = ({
               <Text
                 style={{
                   fontSize: 16,
-                  fontWeight: '600',
+                  fontWeight: "600",
                   color: colors.background,
                 }}
               >
@@ -167,8 +170,8 @@ const DetailsScreen = ({
                   backgroundColor: colors.card,
                   width: 34,
                   aspectRatio: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  alignItems: "center",
+                  justifyContent: "center",
                   borderRadius: 34,
                 }}
               >
@@ -178,17 +181,17 @@ const DetailsScreen = ({
           </View>
 
           <View>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text
                 style={{
                   flex: 1,
                   fontSize: 16,
-                  fontWeight: '600',
+                  fontWeight: "600",
                   color: colors.text,
-                  textTransform: 'uppercase',
+                  textTransform: "uppercase",
                 }}
               >
-                Model is 6&apos;1&apos;&apos;, Size M
+                Model is 6'1'', Size M
               </Text>
               <Text style={{ color: colors.text, opacity: 0.5 }}>
                 Size guide
@@ -197,8 +200,8 @@ const DetailsScreen = ({
 
             <View
               style={{
-                flexDirection: 'row',
-                flexWrap: 'wrap',
+                flexDirection: "row",
+                flexWrap: "wrap",
                 gap: 6,
                 marginTop: 6,
               }}
@@ -210,8 +213,8 @@ const DetailsScreen = ({
                   style={{
                     width: 44,
                     height: 44,
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    alignItems: "center",
+                    justifyContent: "center",
                     backgroundColor: s === size ? colors.primary : colors.card,
                     borderRadius: 44,
                   }}
@@ -219,7 +222,7 @@ const DetailsScreen = ({
                   <Text
                     style={{
                       color: s === size ? colors.card : colors.text,
-                      fontWeight: '600',
+                      fontWeight: "600",
                       fontSize: 16,
                     }}
                   >
@@ -234,7 +237,7 @@ const DetailsScreen = ({
             <Text
               style={{
                 fontSize: 16,
-                fontWeight: '600',
+                fontWeight: "600",
                 marginBottom: 6,
                 color: colors.text,
               }}
@@ -252,7 +255,7 @@ const DetailsScreen = ({
           </View>
 
           <View style={{ flex: 1 }} />
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 16 }}>
             <View style={{ flex: 1 }}>
               <Text
                 style={{ color: colors.text, opacity: 0.75, marginBottom: 4 }}
@@ -260,7 +263,7 @@ const DetailsScreen = ({
                 Total
               </Text>
               <Text
-                style={{ color: colors.text, fontSize: 18, fontWeight: '600' }}
+                style={{ color: colors.text, fontSize: 18, fontWeight: "600" }}
               >
                 ${(25000).toLocaleString()}
               </Text>
@@ -271,17 +274,17 @@ const DetailsScreen = ({
                 backgroundColor: colors.primary,
                 height: 64,
                 borderRadius: 64,
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                flexDirection: 'row',
+                alignItems: "center",
+                justifyContent: "center",
+                position: "relative",
+                flexDirection: "row",
                 padding: 12,
               }}
             >
               <Text
                 style={{
                   fontSize: 16,
-                  fontWeight: '600',
+                  fontWeight: "600",
                   color: colors.background,
                   paddingHorizontal: 16,
                 }}
@@ -295,8 +298,8 @@ const DetailsScreen = ({
                   width: 40,
                   aspectRatio: 1,
                   borderRadius: 40,
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <Icons name="arrow-forward" size={24} color={colors.text} />
@@ -306,7 +309,7 @@ const DetailsScreen = ({
         </View>
       </BottomSheet>
     </View>
-  )
-}
+  );
+};
 
-export default DetailsScreen
+export default DetailsScreen;

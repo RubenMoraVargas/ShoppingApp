@@ -1,28 +1,28 @@
-import { View } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import React from "react";
 import {
-  type BottomTabScreenProps,
+  BottomTabScreenProps,
   createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs'
-import HomeScreen from '../screens/HomeScreen'
-import Icons from '@expo/vector-icons/MaterialIcons'
-import { type CompositeScreenProps } from '@react-navigation/native'
-import { type RootStackScreenProps } from './RootNavigator'
-import CustomBottomTabs from '../components/CustomBottomTabs'
+} from "@react-navigation/bottom-tabs";
+import HomeScreen from "../screens/HomeScreen";
+import Icons from "@expo/vector-icons/MaterialIcons";
+import { CompositeScreenProps } from "@react-navigation/native";
+import { RootStackScreenProps } from "./RootNavigator";
+import CustomBottomTabs from "../components/CustomBottomTabs";
 
 export type TabsStackParamList = {
-  Home: undefined
-  Cart: undefined
-  Payment: undefined
-  Profile: undefined
-}
-const TabsStack = createBottomTabNavigator<TabsStackParamList>()
+  Home: undefined;
+  Cart: undefined;
+  Payment: undefined;
+  Profile: undefined;
+};
+const TabsStack = createBottomTabNavigator<TabsStackParamList>();
 
 export type TabsStackScreenProps<T extends keyof TabsStackParamList> =
   CompositeScreenProps<
     BottomTabScreenProps<TabsStackParamList, T>,
-    RootStackScreenProps<'TabsStack'>
-  >
+    RootStackScreenProps<"TabsStack">
+  >;
 
 const TabsNavigator = () => {
   return (
@@ -38,7 +38,7 @@ const TabsNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon(props) {
-            return <Icons name="home" {...props} />
+            return <Icons name="home" {...props} />;
           },
         }}
       />
@@ -47,7 +47,7 @@ const TabsNavigator = () => {
         component={Example}
         options={{
           tabBarIcon(props) {
-            return <Icons name="shopping-cart" {...props} />
+            return <Icons name="shopping-cart" {...props} />;
           },
         }}
       />
@@ -56,7 +56,7 @@ const TabsNavigator = () => {
         component={Example}
         options={{
           tabBarIcon(props) {
-            return <Icons name="account-balance-wallet" {...props} />
+            return <Icons name="account-balance-wallet" {...props} />;
           },
         }}
       />
@@ -65,16 +65,16 @@ const TabsNavigator = () => {
         component={Example}
         options={{
           tabBarIcon(props) {
-            return <Icons name="person" {...props} />
+            return <Icons name="person" {...props} />;
           },
         }}
       />
     </TabsStack.Navigator>
-  )
-}
+  );
+};
 
-export default TabsNavigator
+export default TabsNavigator;
 
 const Example = () => {
-  return <View />
-}
+  return <View />;
+};

@@ -1,23 +1,23 @@
-import React from 'react'
-import { type NavigatorScreenParams } from '@react-navigation/native'
+import React from "react";
+import { NavigatorScreenParams } from "@react-navigation/native";
 import {
-  type NativeStackScreenProps,
+  NativeStackScreenProps,
   createNativeStackNavigator,
-} from '@react-navigation/native-stack'
-import DetailsScreen from '../screens/DetailsScreen'
-import TabsNavigator, { type TabsStackParamList } from './TabsNavigator'
+} from "@react-navigation/native-stack";
+import DetailsScreen from "../screens/DetailsScreen";
+import TabsNavigator, { TabsStackParamList } from "./TabsNavigator";
 
 export type RootStackParamList = {
-  TabsStack: NavigatorScreenParams<TabsStackParamList>
+  TabsStack: NavigatorScreenParams<TabsStackParamList>;
   Details: {
-    id: string
-  }
-}
+    id: string;
+  };
+};
 
-const RootStack = createNativeStackNavigator<RootStackParamList>()
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, T>
+  NativeStackScreenProps<RootStackParamList, T>;
 
 const RootNavigator = () => {
   return (
@@ -37,7 +37,7 @@ const RootNavigator = () => {
         }}
       />
     </RootStack.Navigator>
-  )
-}
+  );
+};
 
-export default RootNavigator
+export default RootNavigator;
